@@ -1,10 +1,15 @@
 # Overview:
 
--This repo contains an inside-versus-outside image classifier as well as the code used to build the classifier and a script to run inference on single images from the command line. 
+This repo contains an inside-versus-outside image classifier as well as the code used to build the classifier and a script to run inference on single images from the command line. 
+
 -All images were collected from youtube videos (via youtube-8m). 
+
 -Inside versus outside videos were collected based on associated category tags (for example 'skiing' category videos were collected as 'outside'). A full list of inside versus outside categories can be found in inside-categories.txt and outside-categories.txt. 
+
 -For each image, .5 frames per second were collected as pngs. 
--3500 images per class were used to fine-tune the Resnet34 convnet, provided by FastAI and Pytorch. 
+
+-3500 images per class were used to fine-tune the Resnet34 convnet, provided by FastAI and Pytorch. Model was trained for 5 epochs, unfrozen, and trained for one additional epoch, with learning rate determined by the lr_find method. 
+
 -Fine-tuned model is included in this repo. Final model accuracy on an image validation set is ~98.4%.
 
 # Requirements
