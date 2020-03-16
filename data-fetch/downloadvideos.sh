@@ -8,8 +8,8 @@ command -v $YTDL >/dev/null 2>&1 || {
 }
 
 # Check number of arguments
-if [ "$#" -lt 2 ]; then
-	echo "Usage: bash downloadvideos.sh <number-of-videos> <category-name>"
+if [ "$#" != "3" ]; then
+	echo "Usage: bash downloadvideos.sh <number-of-videos> <output-directory> <category-name>"
 	exit 1
 fi
 
@@ -25,13 +25,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 mid=$mid$txt
 
-mkdir -p <videos>
+dir="$2"
+mkdir -p "$dir"
 
 if [ "$1" -eq 0 ]; then
 	while read line
 		do
 			# Use -f 22/best to download in whatever best format and quality available if not 22 i.e. mp4 720p
-			$YTDL -f best "http://www.youtube.com/watch?v=$line" -o ./<videos>/"$name%(title)s-%(id)s.%(ext)s"
+			$YTDL -f best "http://www.youtube.com/watch?v=$line" -o ./"$dir"/"$name%(title)s-%(id)s.%(ext)s"
 		done < category-ids/$mid
 else
 	limit=$1
@@ -40,7 +41,7 @@ else
 		do
 			if [ "$limit" -gt 0 ]; then
 				limit=$(($limit-1))
-				$YTDL -f best "http://www.youtube.com/watch?v=$line" -o ./<videos>/"$name%(title)s-%(id)s.%(ext)s" 2>&1 | tee log.txt
+				$YTDL -f best "http://www.youtube.com/watch?v=$line" -o ./"$dir"/"$name%(title)s-%(id)s.%(ext)s" 2>&1 | tee log.txt
 				error=$(grep -c ERROR log.txt)
 				if [ "$error" -gt 0 ]; then
 					limit=$(($limit+1))

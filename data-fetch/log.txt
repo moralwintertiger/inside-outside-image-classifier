@@ -1,3 +1,0 @@
-[youtube] XbJHZ5jqok4: Downloading webpage
-[youtube] XbJHZ5jqok4: Downloading video info webpage
-[youtube] XbJHZ5jqok4: Downloading MPD manifest
