@@ -46,4 +46,4 @@ This repo contains an inside-versus-outside image classifier as well as the code
 # Test a sample image
 -Run the following command:
 
-`python3 model-test/test.py`
+`python3 model-test/test.py --image_path`
