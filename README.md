@@ -22,9 +22,9 @@ This repo contains an inside-versus-outside image classifier as well as the code
 - `cd data-fetch`
 - Run the following commands:
 
-- `bash downloadmulticategoryvideos.sh <number-of-videos-per-category> inside-categories.txt`.
+- `bash downloadmulticategoryvideos.sh <number-of-videos-per-category> <output-directory> inside-categories.txt`.
 
-- `bash downloadmulticategoryvideos.sh <number-of-videos-per-category> outside-categories.txt`.
+- `bash downloadmulticategoryvideos.sh <number-of-videos-per-category> <output_directory> outside-categories.txt`.
 
 # Generate frames from downloaded videos
 -Run the following commands:
